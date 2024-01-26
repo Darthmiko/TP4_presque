@@ -114,12 +114,12 @@ class MyGame(arcade.Window):
                 i.on_draw(arcade.color.GREEN)
 
         def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
-            ball = Balle(x,y, random.randint(0,50), random.randint(0,50), random.randint(0,50), self.liste_balle)
-            self.liste_balle.append(ball)
-
-        def on_right_mouse_press(self, x: int, y: int, button: int, modifiers: int):
-            rectangle = Rectangle(x,y, random.randint(0,50), random.randint(0,50),random.randint(0,50), self.liste_rectangle)
-            self.liste_rectangle.append(rectangle)
+            if button == arcade.MOUSE_BUTTON_LEFT:
+                ball = Balle(x, y, random.randint(0, 50), random.randint(0, 50), random.randint(0, 50), COLOR[random.randint(0, 3)])
+                self.liste_balle.append(ball)
+            if button == arcade.MOUSE_BUTTON_RIGHT:
+                rectangle = Rectangle(x, y, random.randint(0, 50), random.randint(0, 50), random.randint(0, 50), random.randint(0, 50), COLOR[random.randint(0, 3)])
+                self.liste_rectangle.append(rectangle)
 
 
 
